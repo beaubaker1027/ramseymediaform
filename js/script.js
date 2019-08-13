@@ -17,3 +17,7 @@ function changeInputValue(el, mutation){
 function formatPhoneNumber(phoneNumberString) {
   return phoneNumberString.trim().replace(/\s/g,"");
 }
+
+function upperCaseText(text){
+  return text.toUpperCase();
+}

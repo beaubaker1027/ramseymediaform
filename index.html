@@ -44,7 +44,6 @@
                     autofocus
                     aria-required="true"
                     name="fullName"
-                    value=""
                     placeholder="Ex. Jane Doe"
                     aria-label="Enter your full name here"
                     aria-describedby="fullNameLabel">
@@ -61,7 +60,6 @@
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                     aria-required="true"
                     name="email"
-                    value=""
                     placeholder="Ex. email@example.com"
                     aria-label="Enter your email here"
                     aria-describedby="emailLabel">
@@ -75,6 +73,7 @@
                     type="tel"
                     tabindex="0"
                     pattern="[0-9]{10}"
+                    maxlength="10"
                     required
                     aria-required="true"
                     oninput="changeInputValue(this, formatPhoneNumber)"
@@ -97,7 +96,6 @@
                     required
                     aria-required="true"
                     name="city"
-                    value=""
                     placeholder="Ex. Joplin"
                     aria-label="Enter your current city here"
                     aria-describedby="cityLabel">
@@ -114,8 +112,9 @@
                     required
                     aria-required="true"
                     name="state"
-                    value=""
-                    placeholder="Ex. Mo"
+                    maxlength="2"
+                    placeholder="Ex. MO"
+                    oninput="changeInputValue(this, upperCaseText)"
                     aria-label="Enter your current state here"
                     aria-describedby="stateLabel">
                 </div>
@@ -127,10 +126,11 @@
                     id="zip"
                     type="text"
                     tabindex="0"
+                    pattern="[0-9]{5}"
+                    maxlength="5"
                     required
                     aria-required="true"
                     name="zip"
-                    value=""
                     placeholder="Ex. XXXXX"
                     aria-label="Enter your zip code here"
                     aria-describedby="zipLabel">
@@ -145,7 +145,6 @@
                     id="optin"
                     name="mailingList"
                     placeholder=""
-                    value=""
                     aria-label="Submit to subscribe to our newsletter"
                     aria-describedby="mailingListLabel">
                   <label id="mailingListLabel" for="optin">Would You Like to Subscribe to Our Newsletter?</label>
