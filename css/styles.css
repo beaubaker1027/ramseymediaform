@@ -9,12 +9,14 @@
   --accent-mid: #28bdbd;
   --accent-dark: #004d4d;
 }
+
 /*main style*/
 * {
   text-transform: uppercase;
   font-family: "Open Sans", sans-serif;
   box-sizing: border-box;
 }
+
 html, body {
   width: 100%;
   height: 100%;
@@ -26,59 +28,52 @@ body {
   color: var(--dark);
   background-color: var(--mid-light);
 }
-#Form-Container {
-  width:50%;
-  background-color: var(--light);
-  -webkit-box-shadow: 1px 1px 20px #cccccc;
-  -moz-box-shadow: 1px 1px 20px #cccccc;
-  box-shadow: 1px 1px 20px #cccccc;
-}
-#Form-Holder {
-  padding: 40px 10px;
-}
-#accessibilityContainer {
-  display: flex;
-  justify-content: flex-end;
-}
-#accessibilityButtons {
-  display: inline-block;
-  padding:10px;
-}
 
 /*style components*/
 .width100 {
   width: 100%;
 }
+
 .centered-horizontal {
   margin: 0 auto;
 }
+
 .flx {
   display:flex;
 }
+
 .flx-row{
   flex-direction: row;
 }
+
 .flx-col {
   flex-direction: column;
 }
+
 .flx-justify-end {
   justify-content: flex-end;
 }
+
 .flx-justify-cen {
   justify-content: center;
 }
+
 .flx-justify-sb {
   justify-content: space-between;
 }
+
 .flx-justify-sa {
   justify-content: space-around;
 }
+
 .flx-justify-se {
   justify-content: space-evenly;
 }
+
 .flx-align-cen {
   align-items: center;
 }
+
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -89,6 +84,7 @@ body {
   position: absolute;
   width: 1px;
 }
+
 .switch-label {
   font-size: 0.8em;
   text-align: right;
@@ -100,6 +96,28 @@ body {
   max-width: 960px;
   min-height: 100%;
   padding: 40px 0;
+}
+
+#formContainer {
+  width:50%;
+  background-color: var(--light);
+  -webkit-box-shadow: 1px 1px 20px #cccccc;
+  -moz-box-shadow: 1px 1px 20px #cccccc;
+  box-shadow: 1px 1px 20px #cccccc;
+}
+
+#formHolder {
+  padding: 40px 10px;
+}
+
+#accessibilityContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#accessibilityButtons {
+  display: inline-block;
+  padding:10px;
 }
 
 .banner {
@@ -114,7 +132,9 @@ body {
 #submissionContainer {
   padding: 45px 15px 10px;
 }
-#submit-button {
+
+#submitButton {
+  text-align: center;
   font-size: 1em;
   color: var(--dark);
   background-color: var(--accent);
@@ -128,12 +148,19 @@ body {
   border-radius: 10px;
 }
 
-#submit-button:focus {
+#submitButton:focus {
   border: 3px solid var(--accent-dark)
 }
 
-#submit-button:active {
+#submitButton:active {
+  opacity: 0.5;
+}
 
+fieldset {
+  margin: 10px 0;
+  padding: 10px 0;
+  width: 100%;
+  border: none;
 }
 
 legend {
@@ -172,17 +199,13 @@ input[type='checkbox'] {
   margin:0;
   zoom: 1.5
 }
+
 input[type='checkbox']:focus {
-  outline: 2px solid var(--mid-light);
+  outline: 3px solid var(--mid-light);
 }
+
 select {
   zoom: 1.2;
-}
-fieldset {
-  margin: 10px 0;
-  padding: 10px 0;
-  width: 100%;
-  border: none;
 }
 
 label {
@@ -226,7 +249,7 @@ label {
   color: var(--light);
   background-color: var(--dark);
 }
-.darkMode #Form-Container {
+.darkMode #formContainer {
   background-color: var(--mid);
   -webkit-box-shadow: 1px 1px 20px #1a1a1a;
   -moz-box-shadow: 1px 1px 20px #1a1a1a;
@@ -244,7 +267,7 @@ label {
   color: var(--light);
 }
 
-.darkMode #submit-button {
+.darkMode #submitButton {
   color: var(--light);
   -webkit-box-shadow: 2px 1px 5px var(--dark);
   -moz-box-shadow: 2px 1px 5px var(--dark);
@@ -252,6 +275,7 @@ label {
   background-color: var(--accent-dark);
 }
 
+/*media groups*/
 @media only screen and (max-width: 960px) {
   body {
     width: 100%;
@@ -260,7 +284,7 @@ label {
     width:100%;
     padding: 0 10px;
   }
-  #Form-Container {
+  #formContainer {
     width: 100%;
   }
 }
