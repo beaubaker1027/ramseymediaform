@@ -11,7 +11,6 @@
     <title>Mock Form - an assessment of form development skills</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.core.min.js"></script>
   </head>
   <body id="main">
     <div class="container centered-horizontal">
@@ -26,18 +25,11 @@
                 </div>
               </div>
             </div>
-            <div class="flx flx-row flx-align-cen">
-              <Label class="switch-label">Low Contrast Mode</label>
-              <div id="contrastMode" class="sliderOuter" onclick="toggleClass(main, getElementId(this));toggleClass(this, 'activated');">
-                <div id="contrastModeSlider" class="sliderInner">
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         </div>
         <div id="Form-Holder">
-          <form class="flx flx-col flx-justify-se" name="InfoForm" onsubmit="return validateForm()" action="" method="post">
+          <form class="flx flx-col flx-justify-se" name="InfoForm" action="index.html" method="post">
               <fieldset class="flx flx-col">
                 <legend>Personal Information</legend>
                 <div class="width100">
@@ -49,11 +41,11 @@
                     type="text"
                     tabindex="0"
                     required
+                    autofocus
                     aria-required="true"
                     name="fullName"
-                    onblur="validateInput(this)"
                     value=""
-                    placeholder="Full Name"
+                    placeholder="Ex. Jane Doe"
                     aria-label="Enter your full name here"
                     aria-describedby="fullNameLabel">
                 </div>
@@ -66,10 +58,11 @@
                     type="text"
                     tabindex="0"
                     required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                     aria-required="true"
                     name="email"
                     value=""
-                    placeholder="Email"
+                    placeholder="Ex. email@example.com"
                     aria-label="Enter your email here"
                     aria-describedby="emailLabel">
                 </div>
@@ -81,15 +74,12 @@
                     id="phone"
                     type="tel"
                     tabindex="0"
-                    pattern="[0-9]{3} [0-9]{3} [0-9]{4}"
+                    pattern="[0-9]{10}"
                     required
                     aria-required="true"
-                    onkeypress="formatPhoneNumber()"
-                    oninput="formatPhoneNumber(this)"
-                    onpaste="formatPhoneNumber()"
+                    oninput="changeInputValue(this, formatPhoneNumber)"
                     name="phone"
-                    value=""
-                    placeholder="Phone Number eg. XXX XXX XXXX"
+                    placeholder="Ex. XXXXXXXXXX"
                     aria-label="Enter your phone number here"
                     aria-describedby="phoneLabel">
                 </div>
@@ -108,7 +98,7 @@
                     aria-required="true"
                     name="city"
                     value=""
-                    placeholder="City"
+                    placeholder="Ex. Joplin"
                     aria-label="Enter your current city here"
                     aria-describedby="cityLabel">
                 </div>
@@ -125,7 +115,7 @@
                     aria-required="true"
                     name="state"
                     value=""
-                    placeholder="State"
+                    placeholder="Ex. Mo"
                     aria-label="Enter your current state here"
                     aria-describedby="stateLabel">
                 </div>
@@ -141,7 +131,7 @@
                     aria-required="true"
                     name="zip"
                     value=""
-                    placeholder="Zip Code"
+                    placeholder="Ex. XXXXX"
                     aria-label="Enter your zip code here"
                     aria-describedby="zipLabel">
                 </div>
@@ -169,6 +159,7 @@
                   name="yes/no"
                   aria-label="Did you personally find this form user friendly? Select and answer from the options"
                   aria-describedby="yesNoLabel">
+                  <option>---</option>
                   <option>Yes</option>
                   <option>No</option>
                 </select>
@@ -180,6 +171,7 @@
         </div>
       </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
   </body>
 </html>

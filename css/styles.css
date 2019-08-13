@@ -7,7 +7,7 @@
   --dark: #333333;
   --accent: #1dc9c9;
   --accent-mid: #28bdbd;
-  --accent-dark: #009999;
+  --accent-dark: #004d4d;
 }
 /*main style*/
 * {
@@ -90,6 +90,7 @@ body {
   width: 1px;
 }
 .switch-label {
+  font-size: 0.8em;
   text-align: right;
   margin-right: 5px;
 }
@@ -136,6 +137,7 @@ body {
 }
 
 legend {
+  padding-bottom: 5px;
   width: 100%;
   font-family: "Roboto";
 }
@@ -177,12 +179,15 @@ select {
   zoom: 1.2;
 }
 fieldset {
+  margin: 10px 0;
+  padding: 10px 0;
   width: 100%;
   border: none;
 }
 
 label {
   flex:1;
+  font-size: 0.9em;
 }
 
 .sliderInner {
@@ -190,7 +195,7 @@ label {
   margin: 0;
   padding: 0;
   background-color: var(--mid-light);
-  min-height: 25px;
+  min-height: 15px;
   border-radius: 8px;
   width:65%;
   right:0;
@@ -202,9 +207,9 @@ label {
   margin: 5px 0;
   position:relative;
   border-radius: 10px;
-  min-height: 25px;
-  max-height: 25px;
-  width:50px;
+  min-height: 15px;
+  max-height: 15px;
+  width:30px;
   background-color: #c6c6c6;
 }
 
@@ -216,24 +221,6 @@ label {
   left: 0;
 }
 
-/*low contrast theme*/
-.contrastMode {
-  color: var(--mid-dark);
-}
-
-.contrastMode .banner {
-  background-color: var(--accent-mid);
-  color: var(--mid-light);
-}
-
-.contrastMode #submit-button {
-  color: var(--mid-light);
-  background-color: var(--accent-mid);
-}
-
-.contrastMode input {
-  color: var(--mid-dark);
-}
 /*dark theme*/
 .darkMode {
   color: var(--light);
@@ -265,16 +252,6 @@ label {
   background-color: var(--accent-dark);
 }
 
-/*dark low contrast theme*/
-.darkMode.contrastMode {
-  color: #999999;
-  background-color: var(--mid);
-}
-
-.darkMode.contrastMode .banner {
-  background-color: var(--accent-mid);
-}
-
 @media only screen and (max-width: 960px) {
   body {
     width: 100%;
@@ -297,9 +274,6 @@ label {
 }
 
 @media (max-width: 500px){
-  fieldset {
-    padding:0;
-  }
   input {
     padding-left: 5px;
     padding-right: 5px;
