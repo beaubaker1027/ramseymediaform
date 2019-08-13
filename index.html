@@ -16,6 +16,7 @@
   <body id="main">
     <div class="container centered-horizontal">
       <div id="Form-Container" class="centered-horizontal">
+        <div class="banner">
         <div id="accessibilityContainer">
           <div id="accessibilityButtons">
             <div class="flx flx-row flx-align-cen">
@@ -34,13 +35,14 @@
             </div>
           </div>
         </div>
+        </div>
         <div id="Form-Holder">
-          <form class="flx flx-col flx-justify-se" action="index.html" method="post">
+          <form class="flx flx-col flx-justify-se" name="InfoForm" onsubmit="return validateForm()" action="" method="post">
               <fieldset class="flx flx-col">
                 <legend>Personal Information</legend>
-                <div>
+                <div class="width100">
                   <div>
-                    <label class="visuallyhidden" for="fullName">Enter Your Full Name:</label>
+                    <label id="fullNameLabel" for="fullName">Enter Your Full Name:</label>
                   </div>
                   <input
                     id="fullName"
@@ -49,13 +51,15 @@
                     required
                     aria-required="true"
                     name="fullName"
+                    onblur="validateInput(this)"
                     value=""
                     placeholder="Full Name"
-                    aria-label="Enter your full name here">
+                    aria-label="Enter your full name here"
+                    aria-describedby="fullNameLabel">
                 </div>
-                <div>
+                <div class="width100">
                   <div>
-                    <label class="visuallyhidden" for="email">Enter Your Email:</label>
+                    <label id="emailLabel" for="email">Enter Your Email:</label>
                   </div>
                   <input
                     id="email"
@@ -66,30 +70,35 @@
                     name="email"
                     value=""
                     placeholder="Email"
-                    aria-label="Enter your email here">
+                    aria-label="Enter your email here"
+                    aria-describedby="emailLabel">
                 </div>
-                <div>
+                <div class="width100">
                   <div>
-                    <label class="visuallyhidden" for="phone">Enter Your Phone Number:</label>
+                    <label id="phoneLabel" for="phone">Enter Your Phone Number:</label>
                   </div>
                   <input
                     id="phone"
                     type="tel"
                     tabindex="0"
-                    pattern="([0-9]{3}) [0-9]{3}-[0-9]{4}"
+                    pattern="[0-9]{3} [0-9]{3} [0-9]{4}"
                     required
                     aria-required="true"
+                    onkeypress="formatPhoneNumber()"
+                    oninput="formatPhoneNumber(this)"
+                    onpaste="formatPhoneNumber()"
                     name="phone"
                     value=""
-                    placeholder="eg. (XXX) XXX - XXXX"
-                    aria-label="Enter your phone number here">
+                    placeholder="Phone Number eg. XXX XXX XXXX"
+                    aria-label="Enter your phone number here"
+                    aria-describedby="phoneLabel">
                 </div>
               </fieldset>
               <fieldset class="flx flx-col">
                 <legend>Location Information</legend>
-                <div>
+                <div class="width100">
                   <div>
-                    <label class="visuallyhidden"for="city">Enter Your City:</label>
+                    <label id="cityLabel" for="city">Enter Your City:</label>
                   </div>
                   <input
                     id="city"
@@ -100,11 +109,12 @@
                     name="city"
                     value=""
                     placeholder="City"
-                    aria-label="Enter your current city here">
+                    aria-label="Enter your current city here"
+                    aria-describedby="cityLabel">
                 </div>
-                <div>
+                <div class="width100">
                   <div>
-                    <label class="visuallyhidden" for="state">Enter Your Current State:</label>
+                    <label id="stateLabel" for="state">Enter Your Current State:</label>
                   </div>
                   <input
                     id="state"
@@ -116,39 +126,56 @@
                     name="state"
                     value=""
                     placeholder="State"
-                    aria-label="Enter your current state here">
+                    aria-label="Enter your current state here"
+                    aria-describedby="stateLabel">
                 </div>
-                <div>
+                <div class="width100">
                   <div>
-                    <label class="visuallyhidden" for="zip">Enter Your Current Zip Code:</label>
+                    <label id="zipLabel" for="zip">Enter Your Current Zip Code:</label>
                   </div>
                   <input
                     id="zip"
                     type="text"
                     tabindex="0"
-                    pattern=""
                     required
                     aria-required="true"
                     name="zip"
                     value=""
                     placeholder="Zip Code"
-                    aria-label="Enter your zip code here">
+                    aria-label="Enter your zip code here"
+                    aria-describedby="zipLabel">
                 </div>
               </fieldset>
               <fieldset>
                 <legend>Subscribe to Our Newsletter</legend>
                 <div class="flx-row flx-align-cen">
-                  <input style="display:inline-block" type="checkbox" name="accept" id="optin" name="mailingList" placeholder="" value="">
-                  <label for="optin">Would You Like to Subscribe to Our Newsletter?</label>
+                  <input
+                    style="display:inline-block"
+                    type="checkbox"
+                    id="optin"
+                    name="mailingList"
+                    placeholder=""
+                    value=""
+                    aria-label="Submit to subscribe to our newsletter"
+                    aria-describedby="mailingListLabel">
+                  <label id="mailingListLabel" for="optin">Would You Like to Subscribe to Our Newsletter?</label>
                 </div>
               </fieldset>
-              <fieldset id="multiSelect">
-                <legend></legend>
-              </fieldset>
               <fieldset id="yes/no">
-                <legend>Was this Form User Friendly</legend>
-                <
+                <legend>User Friendliness</legend>
+                <label id="yesNoLabel">Did you personally find this form user friendly?</label>
+                <select
+                  class=""
+                  name="yes/no"
+                  aria-label="Did you personally find this form user friendly? Select and answer from the options"
+                  aria-describedby="yesNoLabel">
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
               </fieldset>
+              <div id="submissionContainer" class="flx flx-row flx-justify-end">
+                <button id="submit-button">Submit</button>
+              </div>
           </form>
         </div>
       </div>

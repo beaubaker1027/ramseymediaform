@@ -3,8 +3,11 @@
   --light: #f2f2f2;
   --mid-light: #e6e6e6;
   --mid: #595959;
+  --mid-dark: #999999;
   --dark: #333333;
-  --accent: #00e6e6;
+  --accent: #1dc9c9;
+  --accent-mid: #28bdbd;
+  --accent-dark: #009999;
 }
 /*main style*/
 * {
@@ -12,20 +15,22 @@
   font-family: "Open Sans", sans-serif;
   box-sizing: border-box;
 }
-html {
-}
 html, body {
-  overflow: scroll;
-  background-color: var(--mid-light);
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
+body {
+  color: var(--dark);
+  background-color: var(--mid-light);
+}
 #Form-Container {
   width:50%;
   background-color: var(--light);
+  -webkit-box-shadow: 1px 1px 20px #cccccc;
+  -moz-box-shadow: 1px 1px 20px #cccccc;
   box-shadow: 1px 1px 20px #cccccc;
 }
 #Form-Holder {
@@ -41,6 +46,9 @@ html, body {
 }
 
 /*style components*/
+.width100 {
+  width: 100%;
+}
 .centered-horizontal {
   margin: 0 auto;
 }
@@ -52,6 +60,9 @@ html, body {
 }
 .flx-col {
   flex-direction: column;
+}
+.flx-justify-end {
+  justify-content: flex-end;
 }
 .flx-justify-cen {
   justify-content: center;
@@ -89,14 +100,52 @@ html, body {
   min-height: 100%;
   padding: 40px 0;
 }
+
+.banner {
+  background-color: var(--accent);
+  min-height: 150px;
+  padding: 5px 0;
+  -webkit-box-shadow: 0px 1px 3px var(--mid-dark);
+  -moz-box-shadow: 0px 1px 3px var(--mid-dark);
+  box-shadow: 0px 1px 3px var(--mid-dark);
+}
+
+#submissionContainer {
+  padding: 45px 15px 10px;
+}
+#submit-button {
+  font-size: 1em;
+  color: var(--dark);
+  background-color: var(--accent);
+  outline: none;
+  -webkit-box-shadow: 2px 1px 3px var(--mid-dark);
+  -moz-box-shadow: 2px 1px 3px var(--mid-dark);
+  box-shadow: 2px 1px 3px var(--mid-dark);
+  border: none;
+  width:75px;
+  height: 35px;
+  border-radius: 10px;
+}
+
+#submit-button:focus {
+  border: 3px solid var(--accent-dark)
+}
+
+#submit-button:active {
+
+}
+
 legend {
+  width: 100%;
   font-family: "Roboto";
 }
+
 input {
+  text-transform: none;
   font-family: "Open Sans";
   font-size: 1em;
   margin:4px;
-  padding: 1em;
+  padding: 15px;
   border-radius: 4px;
   border: none;
   background-color: transparent;
@@ -106,12 +155,17 @@ input[type='text'] {
   width:100%;
 }
 
+input[type='tel'] {
+  width: 100%;
+}
+
 input:focus {
   outline: none;
   border: 4px solid var(--mid-light);
 }
 
 input[type='checkbox'] {
+  width: auto;
   padding: 0;
   margin:0;
   zoom: 1.5
@@ -119,7 +173,11 @@ input[type='checkbox'] {
 input[type='checkbox']:focus {
   outline: 2px solid var(--mid-light);
 }
+select {
+  zoom: 1.2;
+}
 fieldset {
+  width: 100%;
   border: none;
 }
 
@@ -160,9 +218,22 @@ label {
 
 /*low contrast theme*/
 .contrastMode {
-  color: #999999;
+  color: var(--mid-dark);
 }
 
+.contrastMode .banner {
+  background-color: var(--accent-mid);
+  color: var(--mid-light);
+}
+
+.contrastMode #submit-button {
+  color: var(--mid-light);
+  background-color: var(--accent-mid);
+}
+
+.contrastMode input {
+  color: var(--mid-dark);
+}
 /*dark theme*/
 .darkMode {
   color: var(--light);
@@ -170,13 +241,38 @@ label {
 }
 .darkMode #Form-Container {
   background-color: var(--mid);
+  -webkit-box-shadow: 1px 1px 20px #1a1a1a;
+  -moz-box-shadow: 1px 1px 20px #1a1a1a;
   box-shadow: 1px 1px 20px #1a1a1a;
+}
+
+.darkMode .banner {
+  background-color: var(--accent-dark);
+  -webkit-box-shadow: 0px 1px 5px var(--dark);
+  -moz-box-shadow: 0px 1px 5px var(--dark);
+  box-shadow: 0px 1px 5px var(--dark);
+}
+
+.darkMode input {
+  color: var(--light);
+}
+
+.darkMode #submit-button {
+  color: var(--light);
+  -webkit-box-shadow: 2px 1px 5px var(--dark);
+  -moz-box-shadow: 2px 1px 5px var(--dark);
+  box-shadow: 2px 1px 5px var(--dark);
+  background-color: var(--accent-dark);
 }
 
 /*dark low contrast theme*/
 .darkMode.contrastMode {
   color: #999999;
   background-color: var(--mid);
+}
+
+.darkMode.contrastMode .banner {
+  background-color: var(--accent-mid);
 }
 
 @media only screen and (max-width: 960px) {
@@ -189,5 +285,23 @@ label {
   }
   #Form-Container {
     width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  input {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 500px){
+  fieldset {
+    padding:0;
+  }
+  input {
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }
