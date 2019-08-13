@@ -134,6 +134,7 @@ body {
 }
 
 #submitButton {
+  padding: 5px;
   text-align: center;
   font-size: 1em;
   color: var(--dark);
