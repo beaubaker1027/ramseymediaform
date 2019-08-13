@@ -2,117 +2,157 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="default-style" content="styles.css">
+    <meta http-equiv="default-style" content="styles/styles.css">
     <meta name="description" content="A mock form as part of an assessment for Ramsey Media">
     <meta name="keywords" content="HTML,CSS,JavaScript,Form,">
     <meta name="author" content="Beau Baker">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<base href="https://beaubaker.github.io" target="_blank">-->
     <title>Mock Form - an assessment of form development skills</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.core.min.js"></script>
   </head>
-  <body class="main centered-horizontal">
-    <div id="Form-Container" class="centered-horizontal">
-      <div id="accessibilityContainer">
-        <div id="accessibilityButtons">
-          <div id="darkMode" class="sliderOuter">
-            <div id="darModeSlider" class="sliderInner">
-
+  <body id="main">
+    <div class="container centered-horizontal">
+      <div id="Form-Container" class="centered-horizontal">
+        <div id="accessibilityContainer">
+          <div id="accessibilityButtons">
+            <div class="flx flx-row flx-align-cen">
+            <Label class="switch-label">Dark Mode</label>
+              <div id="darkMode" class="sliderOuter" onclick="toggleClass(main, getElementId(this));toggleClass(this, 'activated');">
+                <div id="darModeSlider" class="sliderInner">
+                </div>
+              </div>
             </div>
-          </div>
-          <div id="lowContrast" class="sliderOuter">
-            <div id="lowContrastSlider" class="sliderInner">
-
+            <div class="flx flx-row flx-align-cen">
+              <Label class="switch-label">Low Contrast Mode</label>
+              <div id="contrastMode" class="sliderOuter" onclick="toggleClass(main, getElementId(this));toggleClass(this, 'activated');">
+                <div id="contrastModeSlider" class="sliderInner">
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div id="Form-Holder">
-        <form class="flx flx-col flx-justify-se" action="index.html" method="post">
-            <fieldset class="flx flx-col">
-              <legend>Personal Information</legend>
-              <label class="visuallyhidden" for="fullName">Enter Your Full Name</label>
-              <input
-                id="fullName"
-                type="text"
-                tabindex="0"
-                required
-                aria-required="true"
-                name="fullName"
-                value=""
-                placeholder="Full Name"
-                aria-label="Enter your full name here">
-              <label class="visuallyhidden" for="email">Enter Your Email</label>
-              <input
-                id="email"
-                type="text"
-                tabindex="0"
-                required
-                aria-required="true"
-                name="email"
-                value=""
-                placeholder="Email"
-                aria-label="Enter your email here">
-              <label class="visuallyhidden" for="phone">Enter Your Phone Number</label>
-              <input
-                id="phone"
-                type="tel"
-                tabindex="0"
-                pattern="[0-9]{3} [0-9]{3}-[0-9]{4}"
-                required
-                aria-required="true"
-                name="phone"
-                value=""
-                placeholder="Phone Number"
-                aria-label="Enter your phone number here">
-            </fieldset>
-            <fieldset class="flx flx-col">
-              <legend>Location Information</legend>
-              <label class="visuallyhidden"for="city">Enter Your City</label>
-              <input
-                id="city"
-                type="text"
-                tabindex="0"
-                required
-                aria-required="true"
-                name="city"
-                value=""
-                placeholder="City"
-                aria-label="Enter your current city here">
-              <label class="visuallyhidden" for="state">Enter Your Current State</label>
-              <input
-                id="state"
-                minLength="2"
-                type="text"
-                tabindex="0"
-                required
-                aria-required="true"
-                name="state"
-                value=""
-                placeholder="State"
-                aria-label="Enter your current state here">
-              <label class="visuallyhidden" for="zip">Enter Your Current Zip Code</label>
-              <input
-                id="zip"
-                type="text"
-                tabindex="0"
-                pattern=""
-                required
-                aria-required="true"
-                name="zip"
-                value=""
-                placeholder="Zip Code"
-                aria-label="Enter your zip code here">
-            </fieldset>
-            <fieldset>
-              <legend>Opt In to Our Newsletter</legend>
-              <input style="display:inline-block" type="checkbox" name="accept" name="mailingList" placeholder="" value="">
-              <label for="mailingList">Would You Like to Subscribe to Our Newsletter?</label>
-            </fieldset>
-            <fieldset id="multiSelect">
-            </fieldset>
-        </form>
+        <div id="Form-Holder">
+          <form class="flx flx-col flx-justify-se" action="index.html" method="post">
+              <fieldset class="flx flx-col">
+                <legend>Personal Information</legend>
+                <div>
+                  <div>
+                    <label class="visuallyhidden" for="fullName">Enter Your Full Name:</label>
+                  </div>
+                  <input
+                    id="fullName"
+                    type="text"
+                    tabindex="0"
+                    required
+                    aria-required="true"
+                    name="fullName"
+                    value=""
+                    placeholder="Full Name"
+                    aria-label="Enter your full name here">
+                </div>
+                <div>
+                  <div>
+                    <label class="visuallyhidden" for="email">Enter Your Email:</label>
+                  </div>
+                  <input
+                    id="email"
+                    type="text"
+                    tabindex="0"
+                    required
+                    aria-required="true"
+                    name="email"
+                    value=""
+                    placeholder="Email"
+                    aria-label="Enter your email here">
+                </div>
+                <div>
+                  <div>
+                    <label class="visuallyhidden" for="phone">Enter Your Phone Number:</label>
+                  </div>
+                  <input
+                    id="phone"
+                    type="tel"
+                    tabindex="0"
+                    pattern="([0-9]{3}) [0-9]{3}-[0-9]{4}"
+                    required
+                    aria-required="true"
+                    name="phone"
+                    value=""
+                    placeholder="eg. (XXX) XXX - XXXX"
+                    aria-label="Enter your phone number here">
+                </div>
+              </fieldset>
+              <fieldset class="flx flx-col">
+                <legend>Location Information</legend>
+                <div>
+                  <div>
+                    <label class="visuallyhidden"for="city">Enter Your City:</label>
+                  </div>
+                  <input
+                    id="city"
+                    type="text"
+                    tabindex="0"
+                    required
+                    aria-required="true"
+                    name="city"
+                    value=""
+                    placeholder="City"
+                    aria-label="Enter your current city here">
+                </div>
+                <div>
+                  <div>
+                    <label class="visuallyhidden" for="state">Enter Your Current State:</label>
+                  </div>
+                  <input
+                    id="state"
+                    minLength="2"
+                    type="text"
+                    tabindex="0"
+                    required
+                    aria-required="true"
+                    name="state"
+                    value=""
+                    placeholder="State"
+                    aria-label="Enter your current state here">
+                </div>
+                <div>
+                  <div>
+                    <label class="visuallyhidden" for="zip">Enter Your Current Zip Code:</label>
+                  </div>
+                  <input
+                    id="zip"
+                    type="text"
+                    tabindex="0"
+                    pattern=""
+                    required
+                    aria-required="true"
+                    name="zip"
+                    value=""
+                    placeholder="Zip Code"
+                    aria-label="Enter your zip code here">
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>Subscribe to Our Newsletter</legend>
+                <div class="flx-row flx-align-cen">
+                  <input style="display:inline-block" type="checkbox" name="accept" id="optin" name="mailingList" placeholder="" value="">
+                  <label for="optin">Would You Like to Subscribe to Our Newsletter?</label>
+                </div>
+              </fieldset>
+              <fieldset id="multiSelect">
+                <legend></legend>
+              </fieldset>
+              <fieldset id="yes/no">
+                <legend>Was this Form User Friendly</legend>
+                <
+              </fieldset>
+          </form>
+        </div>
       </div>
     </div>
+    <script type="text/javascript" src="js/script.js"></script>
   </body>
 </html>
